@@ -1,0 +1,19 @@
+databaseChangeLog:
+  - changeSet:
+      id: v2-add-vehicle-type-enum
+      author: your_name
+      changes:
+        - preConditions:
+            - onFail: MARK_RAN
+            - not:
+                - columnExists:
+                    tableName: vehicles
+                    columnName: vehicle_type
+        - addColumn:
+            tableName: vehicles
+            columns:
+              - column:
+                  name: vehicle_type
+                  type: varchar(20)
+                  constraints:
+                    nullable: false
