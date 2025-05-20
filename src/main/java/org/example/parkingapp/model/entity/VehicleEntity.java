@@ -29,15 +29,15 @@ public class VehicleEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
 
-    @Column(name = "vehicle_number", nullable = false, unique = true)
+    @Column(name = "vehicle_number", unique = true)
     @NotBlank(message = "Vehicle number cannot be blank")
     String vehicleNumber;
 
-    @Column(name = "vehicle_type",nullable = false)
+    @Column(name = "vehicle_type")
     @Enumerated(EnumType.STRING)
     VehicleType vehicleType;
 
-    @Column(name = "entry_time", nullable = false)
+    @Column(name = "entry_time")
     LocalDateTime entryTime;
 
     @Column(name = "exit_time")

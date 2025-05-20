@@ -21,7 +21,7 @@ public class ParkingExitService implements ParkingService {
             rollbackFor = Exception.class
     )
     public VehicleEntity exitVehicle(String vehicleNumber) {
-        VehicleEntity vehicle = vehicleRepository.findByVehicleNumberAndExitTimeIsNull(normalizeNumber(vehicleNumber)).orElseThrow(() -> new VehicleNotFoundException("Car with number " + vehicleNumber + " not found on parking")
+        VehicleEntity vehicle = vehicleRepository.findByVehicleNumberAndExitTimeIsNull(vehicleNumber).orElseThrow(() -> new VehicleNotFoundException("Car with number " + vehicleNumber + " not found on parking")
         );
         LocalDateTime actualExitTime = LocalDateTime.now();
         vehicle.registerExit(actualExitTime);
